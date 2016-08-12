@@ -5,6 +5,7 @@ var User = mongoose.Schema({
   username: {type: String, required: true, unique: true},
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
+  car: {make: String, model: String, Year: Date}
 })
 
 User.methods.encrypt = function(password) {
