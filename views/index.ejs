@@ -13,43 +13,30 @@
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
+
   <body>
-    <%- include partials/head.ejs %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <h1 class= "text-center">Roadtrippr</h1>
-    <p class= "text-center">Welcome to Roadtrippr</p>
 
   <div class="jumbotron">
-    <img src="http://static1.squarespace.com/static/540df5b7e4b0b38308b4af53/t/577554326a4963c15316acd7/1465325479644/SKY.jpg" alt="Mountain View" style="width:1140px;height:760px;" class="img-responsive">
+    <img src="../../assets/images/roadtrippr.png" class="img-responsive">
+    <!-- <img src="http://static1.squarespace.com/static/540df5b7e4b0b38308b4af53/t/577554326a4963c15316acd7/1465325479644/SKY.jpg" alt="Mountain View" style="width:1140px;height:760px;" class="img-responsive"> -->
   </div>
 
-  <!-- <div class="container text-center">
-    <form>
+
+<span class="search-bar">
+  <div class="text-center search-bar">
+    <form class="form-inline" action="/" method="post">
       <div class="form-group">
-        <span>Start location:</span>
-        <input type="text" class="form-control" placeholder="Enter start location">
+        <label for="inputName1">Starting Location:</label>
+        <input type="text" name="startingLoc" placeholder="Enter start location" class="form-control">
       </div>
       <div class="form-group">
-        <span="destination">Destination:</span>
-        <input type="text" class="form-control"placeholder="Enter destination">
+        <label for="inputName1">Destination:</label>
+        <input type="text" name="destination" placeholder="Enter destination" class="form-control">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-  </div> -->
-
-  <div class="container text-center">
-    <form action="/" method="post">
-      <div class="form-group">
-        <span>Starting Location: <input type="text" name="startingLoc"></span>
-      </div>
-      <div class="form-group">
-        <span>Destination: <input type="text" name="destination"></span>
-      </div>
-      <input type="submit" value="Search">
-    </form>
   </div>
-
+</span>
 
   </body>
 </html>
