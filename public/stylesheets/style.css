@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+  font-weight: bold;
 }
 
 a {
@@ -28,4 +29,15 @@ a {
   color: white;
   text-shadow: black 0.3em 0.3em 0.3em;
   background:transparent;
+}
+
+label {
+  color: white;
+}
+
+.search-bar {
+  color: #a94442;
+  background-color: #F2DEDE;
+  border: 1px solid #a94442;
+  border-radius: 5px;
 }
