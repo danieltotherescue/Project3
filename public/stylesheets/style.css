@@ -1,3 +1,22 @@
 label {
   color: white;
 }
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  background-image: url("//i.ytimg.com/vi/CI-lthTmS00/maxresdefault.jpg");
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 420px;
+  text-shadow: black 0.1em 0.1em 0.1em;
+}
