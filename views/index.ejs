@@ -20,11 +20,11 @@
     <h1 class= "text-center">Roadtrippr</h1>
     <p class= "text-center">Welcome to Roadtrippr</p>
 
-  <div class="jumbotron jumbotron-fluid">
-    <img src="http://static1.squarespace.com/static/540df5b7e4b0b38308b4af53/t/577554326a4963c15316acd7/1465325479644/SKY.jpg" alt="Mountain View" style="width:1140px;height:760px;" class="bg">
+  <div class="jumbotron">
+    <img src="http://static1.squarespace.com/static/540df5b7e4b0b38308b4af53/t/577554326a4963c15316acd7/1465325479644/SKY.jpg" alt="Mountain View" style="width:1140px;height:760px;" class="img-responsive">
   </div>
 
-  <div class="container text-center">
+  <!-- <div class="container text-center">
     <form>
       <div class="form-group">
         <span>Start location:</span>
@@ -36,15 +36,20 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+  </div> -->
+
+  <div class="container text-center">
+    <form action="/" method="post">
+      <div class="form-group">
+        <span>Starting Location: <input type="text" name="startingLoc"></span>
+      </div>
+      <div class="form-group">
+        <span>Destination: <input type="text" name="destination"></span>
+      </div>
+      <input type="submit" value="Search">
+    </form>
   </div>
 
-<<<<<<< HEAD
-    <form action="/" method="post">
-      <p>Starting Location: <input type="text" name="startingLoc"></p>
-      <p>Destination: <input type="text" name="destination"></p>
-      <input type="submit" value="Search">
-=======
->>>>>>> jennyBranch
-    </form>
+
   </body>
 </html>
