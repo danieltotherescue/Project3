@@ -39,8 +39,6 @@ router.get('/oauth2callback', passport.authenticate(
 router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
->>>>>>> mike
->>>>>>> f2f07339e1366fc72c5e76c082cce85d9c76c183
 });
 
 module.exports = router;
