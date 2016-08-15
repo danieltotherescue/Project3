@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
   </head>
   <body>
     <h1><%= title %></h1>
@@ -10,8 +11,18 @@
 
 
     <form action="/" method="post">
-      <input type="text" name="search[destination]">
+      <input type="text" id="destination" name="search[destination]">
       <input type="submit" value="Search">
     </form>
+    <li><a href="/logout"><i class="material-icons left"></i>Logout</a></li>
+    <ul class="right">
+  <% if (user) { %>
+  <li><a href="/logout"><i class="material-icons left"></i>Logout</a></li>
+  <% } else { %>
+  <li><a href="/auth/google"><i class="material-icons left"></i>Login with Google</a></li>
+  <% } %>
+</ul>
+    <script src='/javascript/app.js'></script>
+
   </body>
 </html>
