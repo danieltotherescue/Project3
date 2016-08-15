@@ -6,10 +6,10 @@ var passport = require('passport');
 
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Roadtrippr' });
+  res.render('index', { title: 'Roadtrippr', user: req.user });
 });
 router.get('/about', function(req, res, next){
-  res.render('pages/about', { title: 'About Roadtrippr' });
+  res.render('pages/about', { title: 'About Roadtrippr', user: req.user });
 });
 
 router.post('/', function(req, res, next) {

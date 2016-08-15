@@ -33,10 +33,17 @@
           <li class = "divider"></li>
           <li><a href = "#">One more separated link</a></li>
         </ul>
-
-
       </li>
     </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if (user) { %>
+         <li><a href="/logout">Logout</a></li>
+         <% } else { %>
+         <li><a href="/auth/google">Login with Google</a></li>
+         <% } %>
+        </ul>
+
   </div>
 
 </nav>
