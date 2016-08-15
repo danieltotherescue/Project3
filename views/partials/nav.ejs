@@ -38,6 +38,16 @@
     </ul>
     <ul>
       
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if (user) { %>
+         <li><a href="/logout">Logout</a></li>
+         <% } else { %>
+         <li><a href="/auth/google">Login with Google</a></li>
+         <% } %>
+        </ul>
+
+>>>>>>> ca72caa60cc61a459dd7b9b7fe415ee5f480af68
   </div>
 
 </nav>
