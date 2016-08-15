@@ -1,36 +1,29 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  min-height: 100%;
+  position: relative;
 }
 
-a {
-  color: #00B7FF;
+body{
+  height: 100%;
 }
 
-
-.img-responsive {
-  margin: 0 auto;
-}
-
-.bg {
-  background: url('/assets/example/bg_blueplane.jpg') no-repeat center center;
-  position: fixed;
-  width: 100%;
-  height: 350px; /*same height as jumbotron */
-  top:0;
-  left:0;
-  z-index: -1;
-}
-
-.jumbotron {
-  margin-bottom: 0px;
-  height: 350px;
-  color: white;
-  text-shadow: black 0.3em 0.3em 0.3em;
-  background:transparent;
+.backgrnd {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url('../assets/images/roadtrippr.png');
+  background-size: cover;
 }
 
 label {
   color: white;
+}
+
+.alert {
+  width:50%;
+  margin-top: 30%;
 }
 
 * {
