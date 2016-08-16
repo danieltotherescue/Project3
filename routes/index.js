@@ -18,8 +18,7 @@ forecastIo.forecast('49.844', '24.028', options).then(function(data) {
 
 
 router.route('/api/search')
-  .get(searchController.index)
-  .post(searchController.create);
+  .get(searchController.index);
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Roadtrippr', user: req.user });
@@ -28,6 +27,10 @@ router.get('/', function(req, res, next) {
 router.get('/about', function(req, res, next) {
   res.render('pages/about', { title: 'About Roadtrippr', user: req.user });
 });
+
+router.get('/searchresults', function(req, res, next) {
+  res.render('pages/searchresults', { title: 'Roadtrippr search results', user: req.user });
+})
 
 router.post('/', function(req, res, next) {
   console.log(req.body)
@@ -43,11 +46,8 @@ router.post('/', function(req, res, next) {
   newSearch.save(function(err, savedSearch) {
     if(err) next (err);
   });
-  if (startingLoc) {
-    res.send('<iframe style="border-style:none;" width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + startingLoc + '&destination=' + destination + '"></iframe>')
-  } else {
-    res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + hiddenLocation + '&destination=' + destination + '"></iframe>')
-  }
+
+  res.redirect('searchresults')
 })
 
 
