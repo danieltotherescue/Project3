@@ -34,6 +34,10 @@ router.get('/searchresults', function(req, res, next) {
   res.render('pages/searchresults', { title: 'Roadtrippr search results', user: req.user });
 })
 
+router.get('/savedsearches', function(req, res, next) {
+  res.render('pages/savedsearches', { title: 'Your saved searches', user: req.user });
+})
+
 router.post('/', function(req, res, next) {
   console.log(req.body)
   var destination = req.body.destination;
