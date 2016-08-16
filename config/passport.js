@@ -17,6 +17,7 @@ passport.use(new GoogleStrategy({
         return cb(null, user);
       } else {
         console.log("creating user")
+        console.log(profile)
         var newUser = new User({
           username: profile.displayName,
           email: profile.emails[0].value,
