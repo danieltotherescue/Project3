@@ -2,7 +2,7 @@ var Search = require('../models/Search');
 
  module.exports = {
    index: index
-  }
+ }
 
  function index(req, res, next){
    Search.find({}, function(err, searches){

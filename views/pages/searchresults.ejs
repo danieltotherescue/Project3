@@ -1,12 +1,26 @@
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<div id="map"></div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include ../partials/head %>
+  </head>
+  <body>
+    <%- include ../partials/header %>
+    <%- include ../partials/nav %>
 
-<script>
-var mapOptions = {
-    center: new google.maps.LatLng(37.7831,-122.4039),
-    zoom: 12,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-};
+    <h1>TEST</h1>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM"></script>
 
-new google.maps.Map(document.getElementById('map'), mapOptions);
-</script>
+    </script>
+    <div id="map"></div>
+
+    <%- include ../partials/scripts %>
+
+    <script>
+      var destination = <%- JSON.stringify(destination) %>
+      var startingLoc = <%- JSON.stringify(startingLoc) %>
+    </script>
+    <script src="javascript/googlemaps.js">
+
+    </script>
+  </body>
+</html>
