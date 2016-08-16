@@ -26,10 +26,8 @@ router.get('/about', function(req, res, next){
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.body)
   var destination = req.body.destination;
   var startingLoc = req.body.startingLoc;
-
   var hiddenLocation = req.body.hiddenLocation;
   if (startingLoc) {
     res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + startingLoc + '&destination=' + destination + '"></iframe>')
@@ -56,5 +54,7 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+
 
 module.exports = router;
