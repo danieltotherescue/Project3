@@ -18,9 +18,8 @@ forecastIo.forecast('49.844', '24.028', options).then(function(data) {
 
 
 router.route('/api/search')
-  .get(searchController.index)
-  .post(searchController.create);
-
+  .get(searchController.index);
+  
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Roadtrippr', user: req.user });
 });
