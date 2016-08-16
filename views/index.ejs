@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <%- include ./partials/head %>
+
   </head>
   <body>
     <%- include ./partials/header %>
     <%- include ./partials/nav %>
+
 
 
 
@@ -14,11 +17,11 @@
         <h4 class="cover-heading text-center">Find things to do along your road trip</h4>
       </div>
       <div class="text-center alert alert-info center-block" id="search-box">
-
         <form class="form-inline" action="/" method="post">
           <div class="form-group">
             <label>Starting Location:</label>
             <input type="text" name="startingLoc" placeholder="Current location" class="form-control">
+            <input type="hidden" id="hiddenLocation" name="hiddenLocation" value="">
           </div>
           <div class="form-group">
             <label>Destination:</label>
@@ -74,7 +77,11 @@
 
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&callback=initMap"> </script>
 
+<<<<<<< HEAD
 
+=======
+    <%- include ./partials/scripts %>
+>>>>>>> dec406198054f5ca7c75e2553f766b8bd4e3cdd7
 
   </body>
 </html>

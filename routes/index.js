@@ -1,15 +1,14 @@
-var express = require('express');
-var router  = express.Router();
-var request = require('request');
+var express  = require('express');
+var router   = express.Router();
+var passport = require('passport');
 
 
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Roadtrippr' });
+  res.render('index', { title: 'Roadtrippr', user: req.user });
 });
 router.get('/about', function(req, res, next){
-  res.render('pages/about', { title: 'About Roadtrippr' });
+  res.render('pages/about', { title: 'About Roadtrippr', user: req.user });
 });
 
 router.post('/', function(req, res, next) {
@@ -21,15 +20,40 @@ router.post('/', function(req, res, next) {
   // })
 
   // Directions
-  var endScript = '<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&callback=initMap"> </script>'
-  var destination = req.body.destination;
-  var startingLoc = req.body.startingLoc;
-  res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + startingLoc + '&destination=' + destination + '"></iframe>' + endScript)
+
 
   // Waypoints
 
 
 
+  console.log(req.body)
+  var destination = req.body.destination;
+  var startingLoc = req.body.startingLoc;
+  var hiddenLocation = req.body.hiddenLocation;
+  if (startingLoc) {
+    res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + startingLoc + '&destination=' + destination + '"></iframe>')
+  } else {
+    res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + hiddenLocation + '&destination=' + destination + '"></iframe>')
+  }
+})
+
+
+router.get('/auth/google', passport.authenticate(
+  'google',
+  {scope: ['profile', 'email']}
+));
+
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect: '/',
+    failureRedirect: '/'
+  }
+));
+
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 
