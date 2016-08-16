@@ -3,18 +3,18 @@ var router   = express.Router();
 var passport = require('passport');
 var ForecastIo = require('forecastio');
 
-var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
-forecastIo.forecast('51.506', '-0.127').then(function(data) {
-  console.log(JSON.stringify(data, null, 2));
-});
-
-var options = {
-  units: 'si',
-  exclude: 'currently,hourly,flags'
-};
-forecastIo.forecast('49.844', '24.028', options).then(function(data) {
-  console.log(JSON.stringify(data, null, 2));
-});
+// var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
+// forecastIo.forecast('51.506', '-0.127').then(function(data) {
+//   console.log(JSON.stringify(data, null, 2));
+// });
+//
+// var options = {
+//   units: 'si',
+//   exclude: 'currently,hourly,flags'
+// };
+// forecastIo.forecast('49.844', '24.028', options).then(function(data) {
+//   console.log(JSON.stringify(data, null, 2));
+// });
 
 
 
