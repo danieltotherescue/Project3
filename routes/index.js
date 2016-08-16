@@ -3,18 +3,20 @@ var router   = express.Router();
 var passport = require('passport');
 var searchController = require('../controllers/search');
 var ForecastIo = require('forecastio');
-var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
-forecastIo.forecast('51.506', '0.127').then(function(data) {
-  console.log(JSON.stringify(data, null, 2));
-});
 
-var options = {
-  units: 'si',
-  exclude: 'currently,hourly,flags'
-};
-forecastIo.forecast('49.844', '24.028', options).then(function(data) {
-  console.log(JSON.stringify(data, null, 2));
-});
+// var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
+// forecastIo.forecast('51.506', '0.127').then(function(data) {
+//   console.log(JSON.stringify(data, null, 2));
+// });
+//
+// var options = {
+//   units: 'si',
+//   exclude: 'currently,hourly,flags'
+// };
+// forecastIo.forecast('49.844', '24.028', options).then(function(data) {
+//   console.log(JSON.stringify(data, null, 2));
+// });
+
 
 
 router.route('/api/search')
@@ -38,7 +40,7 @@ router.post('/', function(req, res, next) {
   var startingLoc = req.body.startingLoc;
   var hiddenLocation = req.body.hiddenLocation;
   var Search = require('../models/Search');
-    console.log('storing a new search!');
+  console.log('storing a new search!');
   var newSearch = new Search();
   newSearch.starting_point = startingLoc;
   newSearch.destination = destination;
@@ -47,7 +49,12 @@ router.post('/', function(req, res, next) {
     if(err) next (err);
   });
 
+
   res.redirect('searchresults')
+})
+
+router.get('/searchresults', function(req, res, next) {
+  res.render('pages/searchresults', { title: 'About Roadtrippr', user: req.user })
 })
 
 
