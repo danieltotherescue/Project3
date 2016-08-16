@@ -48,3 +48,8 @@ label {
     font-weight: bold;
     line-height: 1.1;
 }
+
+#map {
+  height: 500px;
+  width: 500px;
+}
