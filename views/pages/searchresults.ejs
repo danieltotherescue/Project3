@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <%- include ../partials/head %>
-</head>
-<body>
-  <%- include ../partials/header %>
-  <%- include ../partials/nav %>
+  <head>
+    <%- include ../partials/head %>
+  </head>
+  <body>
+    <%- include ../partials/header %>
+    <%- include ../partials/nav %>
 
-  <h1>TEST</h1>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM"></script>
-  <div id="map" style="height:500px;width:500px;"></div>
+    <h1>TEST</h1>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM"></script>
 
-  <%- include ../partials/scripts %>
-  <script type="text/javascript" src="javascript/googlemaps.js">
+    </script>
+    <div id="map"></div>
 
-  </script>
-</body>
+    <%- include ../partials/scripts %>
+
+    <script>
+      var destination = <%- JSON.stringify(destination) %>
+      var startingLoc = <%- JSON.stringify(startingLoc) %>
+    </script>
+    <script src="javascript/googlemaps.js">
+
+    </script>
+  </body>
 </html>
