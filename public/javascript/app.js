@@ -25,49 +25,8 @@ $.when(geoLocation.getLocation()).then(function(data){
   console.log(data.coords.longitude, data.coords.latitude);
 });
 
-var $form = $('#searchForm')
-var $searchList;
-// var $searches = {
-//   start: $('#startingLoc').val(),
-//   end: $('#destination').val()
-// }
-function createSearchHTML(search) {
-  return $('<ul id="Searches">Past Searches <li class="starting">Starting Point'+ $searches.start +'</li> <li class="endP">' + $searches.end '</li></ul>'
-
-$form.on('submit', function(){
-
-  var newSearch = {
-  starting_point = $('#startingLoc').val(),
-  destination =    $('#destination').val()
-
-}
-
-console.log(newSearch)
   $.ajax({
-    method: 'POST',
+    method: 'GET',
     url: '/api/search',
-    data: newSearch
-  }).then(
-    function(jsonSearch){
-
-      $('#startingLoc').val('');
-      $('destination').val('');
-
-      return jsonSearch;
-    },
-    function(err){
-      console.log('Failure: ', err)
-    }
-  ).then
-})
-
-$.ajax({
-  method: 'GET',
-  url: '/api/search'
-}).then(
-  function pastSearches(jsonSearches){
-    jsonSearches.forEach(function(jsonSearch){
-      var searchHTML = createSearchHTML(jsonSearch)
-    })
-  }
-)
+    data: 'json'
+  })
