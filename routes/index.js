@@ -2,6 +2,7 @@ var express  = require('express');
 var router   = express.Router();
 var passport = require('passport');
 var searchController = require('../controllers/search');
+
 var ForecastIo = require('forecastio');
 
 // var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
@@ -16,7 +17,6 @@ var ForecastIo = require('forecastio');
 // forecastIo.forecast('49.844', '24.028', options).then(function(data) {
 //   console.log(JSON.stringify(data, null, 2));
 // });
-
 
 
 router.route('/api/search')
@@ -70,5 +70,13 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+router.get('/savedsearches', function(req, res, next){
+  res.render('pages/savedsearches', { title: 'Roadtrippr search results', user: req.user });
+})
+
+router.get('/searchresults', function(req, res, next) {
+  res.render('pages/searchresults', { title: 'Roadtrippr search results', user: req.user });
+})
 
 module.exports = router;
