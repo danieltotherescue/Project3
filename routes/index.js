@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
   var startingLoc = req.body.startingLoc;
   var hiddenLocation = req.body.hiddenLocation;
   if (startingLoc) {
-    res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + startingLoc + '&destination=' + destination + '"></iframe>')
+    res.send('<iframe style="border-style:none;" width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + startingLoc + '&destination=' + destination + '"></iframe>')
   } else {
     res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + hiddenLocation + '&destination=' + destination + '"></iframe>')
   }
