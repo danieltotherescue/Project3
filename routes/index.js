@@ -2,12 +2,9 @@ var express  = require('express');
 var router   = express.Router();
 var passport = require('passport');
 var searchController = require('../controllers/search');
-<<<<<<< HEAD
-// var ForecastIo = require('forecastio');
-=======
+
 var ForecastIo = require('forecastio');
 
->>>>>>> fe5fa4b668b349f1af0fd9c5470367453f479736
 // var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
 // forecastIo.forecast('51.506', '0.127').then(function(data) {
 //   console.log(JSON.stringify(data, null, 2));
@@ -20,10 +17,6 @@ var ForecastIo = require('forecastio');
 // forecastIo.forecast('49.844', '24.028', options).then(function(data) {
 //   console.log(JSON.stringify(data, null, 2));
 // });
-<<<<<<< HEAD
-=======
-
->>>>>>> fe5fa4b668b349f1af0fd9c5470367453f479736
 
 
 router.route('/api/search')
@@ -79,7 +72,7 @@ router.get('/logout', function(req, res){
 });
 
 router.get('/savedsearches', function(req, res, next){
-  res.render('pages/savedsearches')
+  res.render('pages/savedsearches', { title: 'Roadtrippr search results', user: req.user });
 })
 
 router.get('/searchresults', function(req, res, next) {
