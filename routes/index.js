@@ -22,21 +22,21 @@ router.post('/', function(req, res, next) {
   var startingLoc = req.body.startingLoc;
   var hiddenLocation = req.body.hiddenLocation;
   var Search = require('../models/Search');
-
     console.log('storing a new search!');
-    var newSearch = new Search();
-    newSearch.starting_point = startingLoc;
-    newSearch.destination = destination;
-    console.log(newSearch);
-    newSearch.save(function(err, savedSearch) {
-      if(err) next (err);
-    });
+  var newSearch = new Search();
+  newSearch.starting_point = startingLoc;
+  newSearch.destination = destination;
+  console.log(newSearch);
+  newSearch.save(function(err, savedSearch) {
+    if(err) next (err);
+  });
   if (startingLoc) {
     res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + startingLoc + '&destination=' + destination + '"></iframe>')
   } else {
     res.send('<iframe width="70%" height="70%" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM&origin=' + hiddenLocation + '&destination=' + destination + '"></iframe>')
   }
 })
+
 
 
 router.get('/auth/google', passport.authenticate(

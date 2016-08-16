@@ -36,20 +36,15 @@
         </ul>
       </li>
     </ul>
-<<<<<<< HEAD
-    <ul>
 
+    <ul class="nav navbar-nav navbar-right">
+      <% if (user) { %>
+     <li><a href="/logout"><img style="max-height: 50%; max-width: 50%;" alt="Brand" src="assets/images/googleLogout.png" ></a></li>
+     <% } else { %>
+     <li><a href="/auth/google"><img style="max-height: 50%; max-width: 50%;" alt="Brand" src="assets/images/googleLogin.png" ></a></li>
+     <% } %>
+    </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-          <% if (user) { %>
-         <li><a href="/logout">Logout</a></li>
-         <% } else { %>
-         <li><a href="/auth/google">Login with Google</a></li>
-         <% } %>
-        </ul>
-
-=======
->>>>>>> dec406198054f5ca7c75e2553f766b8bd4e3cdd7
   </div>
 
 </nav>
