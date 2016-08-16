@@ -2,7 +2,11 @@ var express  = require('express');
 var router   = express.Router();
 var passport = require('passport');
 var searchController = require('../controllers/search');
+
 var ForecastIo = require('forecastio');
+
+var destination;
+var startingLoc;
 
 // var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
 // forecastIo.forecast('51.506', '0.127').then(function(data) {
@@ -16,7 +20,6 @@ var ForecastIo = require('forecastio');
 // forecastIo.forecast('49.844', '24.028', options).then(function(data) {
 //   console.log(JSON.stringify(data, null, 2));
 // });
-
 
 
 router.route('/api/search')
@@ -40,9 +43,8 @@ router.get('/savedsearches', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   console.log(req.body)
-  var destination = req.body.destination;
-  var startingLoc = req.body.startingLoc;
-  var hiddenLocation = req.body.hiddenLocation;
+  destination = req.body.destination;
+  startingLoc = req.body.startingLoc;
   var Search = require('../models/Search');
   console.log('storing a new search!');
   var newSearch = new Search();
@@ -58,7 +60,7 @@ router.post('/', function(req, res, next) {
 })
 
 router.get('/searchresults', function(req, res, next) {
-  res.render('pages/searchresults', { title: 'About Roadtrippr', user: req.user })
+  res.render('pages/searchresults', {title: 'About Roadtrippr', user: req.user, destination: destination, startingLoc: startingLoc})
 })
 
 
@@ -80,5 +82,13 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+router.get('/savedsearches', function(req, res, next){
+  res.render('pages/savedsearches', { title: 'Roadtrippr search results', user: req.user });
+})
+
+router.get('/searchresults', function(req, res, next) {
+  res.render('pages/searchresults', { title: 'Roadtrippr search results', user: req.user });
+})
 
 module.exports = router;
