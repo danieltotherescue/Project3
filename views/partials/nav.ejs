@@ -35,6 +35,15 @@
         </ul>
       </li>
     </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if (user) { %>
+     <li><a href="/logout"><img style="max-height: 50%; max-width: 50%;" alt="Brand" src="assets/images/googleLogout.png" ></a></li>
+     <% } else { %>
+     <li><a href="/auth/google"><img style="max-height: 50%; max-width: 50%;" alt="Brand" src="assets/images/googleLogin.png" ></a></li>
+     <% } %>
+    </ul>
+    
   </div>
 
 </nav>
