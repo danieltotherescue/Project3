@@ -9,11 +9,13 @@
   <body>
     <%- include ../partials/header %>
     <%- include ../partials/nav %>
-    <h1> Past Searches</h1>
-    <ul id="searchlist">
-    </ul>
+    <table>
+    <td >Starting Point</td>
+    <tr id="start"></tr>
+    <td id="end">Destination</td>
 
+</table>
     <%- include ../partials/scripts %>
-
+    <script src="/javascript/savedsearches.js"></script>
   </body>
 </html>

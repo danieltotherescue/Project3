@@ -20,12 +20,11 @@ function getSearches(){
   var searches = $.get('/api/search')
     .done(function(data){
       $.each(data, function(index, search){
-        console.log(searches)
         addSearch(search)
       })
     })
 }
 
 function addSearch(search){
-  $('ul#searchlist').prepend('<li><STRONG>Starting Point: </STRONG>' + search.starting_point + ' ' + '<STRONG>Destination: </STRONG>'+ search.destination +'</li>')
+  $('tr#start').prepend('<tr>' + search.starting_point + '</tr>')
 }

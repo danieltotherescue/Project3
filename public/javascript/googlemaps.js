@@ -20,7 +20,7 @@ var geoLocation = {
 $.when(geoLocation.getLocation()).then(function(data){
   var pos = {
     lat: data.coords.latitude,
-    lng: data.coords.longitude
+    lng: data.coords .longitude
   };
   console.log(pos)
 
@@ -48,8 +48,7 @@ $.when(geoLocation.getLocation()).then(function(data){
       travelMode: 'DRIVING'
     }
   }
-
-
+  
   directionsService.route(req, function(res, status) {
     if (status == 'OK') {
       directionsDisplay.setDirections(res)
