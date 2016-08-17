@@ -44,8 +44,8 @@ $.when(geoLocation.getLocation()).then(function(data){
         map: map,
         position: results[0].geometry.location
       });
-      console.log(startingLoc + ' latitude: ' + results[0].geometry.bounds.b.b)
-      console.log(startingLoc + ' longitude: ' + results[0].geometry.bounds.f.b)
+      console.log(startingLoc + ' latitude: ' + (results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f) / 2)
+      console.log(startingLoc + ' longitude: ' + (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2)
   }});
   geocoder.geocode({ 'address': destination }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -54,8 +54,8 @@ $.when(geoLocation.getLocation()).then(function(data){
         map: map,
         position: results[0].geometry.location
       });
-      console.log(destination + ' latitude: ' + results[0].geometry.bounds.b.b)
-      console.log(destination + ' longitude: ' + results[0].geometry.bounds.f.b)
+      console.log(destination + ' latitude: ' + (results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f) / 2)
+      console.log(destination + ' longitude: ' + (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2)
   }});
 
   if (startingLoc) {
