@@ -33,6 +33,10 @@ router.get('/about', function(req, res, next) {
   res.render('pages/about', { title: 'About Roadtrippr', user: req.user });
 });
 
+router.get('/savedsearches', function(req, res, next) {
+  res.render('pages/savedsearches', { title: 'Your saved searches', user: req.user });
+})
+
 router.post('/', function(req, res, next) {
 
   // res.send(<'iframe width="70%" height="70%" src="https://api.forecast.io/forecast/9363c7ddfdea32d3ccd82b5c780b74d1/hourly' + latitude' +  'longitude'"></iframe>', function (error, response, body) {
@@ -59,11 +63,13 @@ router.post('/', function(req, res, next) {
   newSearch.save(function(err, savedSearch) {
     if(err) next (err);
   });
+
+
   res.redirect('searchresults')
 })
 
 router.get('/searchresults', function(req, res, next) {
-  res.render('pages/searchresults', {title: 'About Roadtrippr', user: req.user, destination: destination, startingLoc: startingLoc})
+  res.render('pages/searchresults', {title: 'Roadtrippr Search Results', user: req.user, destination: destination, startingLoc: startingLoc})
 })
 
 
