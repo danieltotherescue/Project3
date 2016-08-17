@@ -34,6 +34,10 @@ router.get('/about', function(req, res, next) {
   res.render('pages/about', { title: 'About Roadtrippr', user: req.user });
 });
 
+router.get('/savedsearches', function(req, res, next) {
+  res.render('pages/savedsearches', { title: 'Your saved searches', user: req.user });
+})
+
 router.post('/', function(req, res, next) {
   console.log(req.body)
   destination = req.body.destination;
@@ -47,11 +51,13 @@ router.post('/', function(req, res, next) {
   newSearch.save(function(err, savedSearch) {
     if(err) next (err);
   });
+
+
   res.redirect('searchresults')
 })
 
 router.get('/searchresults', function(req, res, next) {
-  res.render('pages/searchresults', {title: 'About Roadtrippr', user: req.user, destination: destination, startingLoc: startingLoc})
+  res.render('pages/searchresults', {title: 'Roadtrippr Search Results', user: req.user, destination: destination, startingLoc: startingLoc})
 })
 
 
