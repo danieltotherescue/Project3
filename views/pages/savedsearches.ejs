@@ -4,17 +4,27 @@
 <head>
   <%- include ../partials/head %>
 </head>
-<body>
-  <%- include ../partials/header %>
-  <%- include ../partials/nav %>
+  <body>
+    <%- include ../partials/header %>
+    <%- include ../partials/nav %>
 
-  <h1>Saved Searches</h1>
-   <ul id="searchlist">
-   </ul>
+    <div class="container">
 
-  <%- include ../partials/scripts %>
-  <script src="/javascript/savedsearches.js"></script>
+      <h1>Saved Searches</h1>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Starting Point</th>
+              <th>Destination</th>
+            </tr>
+            </thead>
+          <tbody id="start">
+          </tbody>
+        </table>
+    </div>
+    <%- include ../partials/scripts %>
+    <script src="/javascript/savedsearches.js"></script>
 
- </body>
+  </body>
 
 </html>
