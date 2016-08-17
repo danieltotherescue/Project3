@@ -53,3 +53,13 @@ label {
   height: 500px;
   width: 500px;
 }
+
+body {
+    overflow-x: hidden;
+}
+.car-right-image {
+    position: absolute;
+    margin-top: 300px;
+    width: 260px;
+    left: -260px;
+}

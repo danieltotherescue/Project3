@@ -12,6 +12,10 @@ $(document).ready(function(){
   }).done(function(data){
     console.log(data);
   });
+
+  $('tbody#start').on("click", function(){
+    alert(this);
+  })
 })
 
 
@@ -20,8 +24,10 @@ function getSearches(){
   var searches = $.get('/api/search')
     .done(function(data){
       $.each(data, function(index, search){
-        $('tbody#start').prepend('<tr><td>' + search.starting_point + '</td>' + '<td>' + search.destination + '</td></tr>');
+        $('tbody#start').prepend('<tr><a href = "#" data-toggle="modal"><td>' + search.starting_point + '</td></a>' + '<td>' + search.destination + '</td></tr>');
         console.log(searches)
+
+        // $('tbody.rowlink').rowlink()
         // addSearch(search)
       })
     })
