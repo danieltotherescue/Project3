@@ -17,3 +17,6 @@ router.route('/api/search')
   .post(searchController.create);
 
 module.exports = router;
+
+if (path === '/searchresults' || path === '/savedsearches') {
+  require('./controllers/search').get(req, res);
