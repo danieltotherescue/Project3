@@ -4,3 +4,5 @@ $.ajax({
   method: 'GET',
   url: '/api/search'
 })
+
+console.log('fyc');
