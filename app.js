@@ -5,11 +5,6 @@ var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 
-// var mongoose     = require('mongoose')
-//
-// var Search = require('./models/search')
-// mongoose.connect('mongodb://localhost/savedSearches')
-
 var session      = require('express-session');
 var passport     = require('passport');
 

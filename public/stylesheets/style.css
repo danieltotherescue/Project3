@@ -55,6 +55,17 @@ label {
   padding: 100px;
 }
 
+/* code for moving car on about page */
+body {
+    overflow-x: hidden;
+}
+.car-right-image {
+    position: absolute;
+    margin-top: 300px;
+    width: 260px;
+    left: -260px;
+}
+
 .float-my-children > * {
     float:left;
     margin-right:5px;
@@ -73,6 +84,22 @@ label {
 .clearfix:after {
     clear: both;
 }
+
+#midp {
+  height: 15%;
+  width: 15%;
+}
+
+#weather {
+  background-color:#fff;
+   border-width:1px;
+   border-style:solid;
+   border-bottom-color:#aaa;
+   border-right-color:#aaa;
+   border-top-color:#ddd;
+   border-left-color:#ddd;
+   border-radius:3px;
+
 
 .fb-comments {
   margin-top: 50px;
