@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <%- include ../partials/head %>
     <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
@@ -10,21 +9,27 @@
   <body>
     <%- include ../partials/header %>
     <%- include ../partials/nav %>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 
-    <h1>TEST</h1>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM"></script>
-
-    </script>
     <div id="map"></div>
 
+    <div class="fb-comments" data-href="http://localhost:3000/searchresults" data-numposts="5"></div>
 
     <%- include ../partials/scripts %>
-
     <script>
       var destination = <%- JSON.stringify(destination) %>
       var startingLoc = <%- JSON.stringify(startingLoc) %>
     </script>
+<<<<<<< HEAD
 
     <div id='Sinfo'>
   <div id='Slocation'>Starting Point</div>
@@ -70,5 +75,9 @@
     <script src="javascript/googlemaps.js"></script>
     <script src="javascript/forecast.js">
     </script>
+=======
+    <script src="javascript/googlemaps.js"></script>
+
+>>>>>>> a07b6128a0da9f858f8c7a9a8e19cffbdad8b0dc
   </body>
 </html>
