@@ -23,7 +23,6 @@ forecastIo.forecast('49.844', '24.028', options).then(function(data) {
 
 router.route('/api/search')
   .get(searchController.index)
-  // .post(searchController.create);
 
 router.route('/api/search/:id')
   .delete(searchController.destroy);
@@ -32,14 +31,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Roadtrippr', user: req.user });
 });
 
-//methinks this is duplicate code.  Let's delete?
-// router.route('/')
-//   .get(pagesController.index);
-
 router.get('/about', function(req, res, next) {
   res.render('pages/about', { title: 'About Roadtrippr', user: req.user });
 });
-
 
 router.post('/', function(req, res, next) {
   console.log(req.body)
@@ -58,8 +52,6 @@ router.post('/', function(req, res, next) {
   newSearch.save(function(err, savedSearch) {
     if(err) next (err);
   });
-
-
   res.redirect('searchresults')
 })
 
@@ -88,6 +80,5 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
-
 
 module.exports = router;

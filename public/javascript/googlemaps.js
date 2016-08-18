@@ -117,6 +117,7 @@ $.when(geoLocation.getLocation()).then(function(data){
           break;
         }
       }
+
       // finds wind direction and picks correct key symbol for display
       function findWindDirection(dir) {
         var key    = ['N','S','W','E','NW','NE','SW','SE'];
@@ -127,6 +128,7 @@ $.when(geoLocation.getLocation()).then(function(data){
       // Grab data from forecast.io using longitude and latitude to grab correct insertBefore
       var apiKey = '76a0b6639f56ec09d980a92471acf6cb';
       var apiURL = 'https://api.forecast.io/forecast/' + apiKey + '/' + $dLatitude + ',' + $dLongitude;
+
       // Gets data and appends it to destination weather conditions
       $.ajax({
         url: apiURL,
@@ -168,6 +170,7 @@ $.when(geoLocation.getLocation()).then(function(data){
 
       var apiKey = '76a0b6639f56ec09d980a92471acf6cb';
       var apiURL = 'https://api.forecast.io/forecast/' + apiKey + '/' + latLng.lat + ',' + latLng.lng;
+
       // Grabs data for midpoint weather conditions
       $.ajax({
         url: apiURL,
@@ -212,6 +215,7 @@ $.when(geoLocation.getLocation()).then(function(data){
       } else {
         var apiURL = 'https://api.forecast.io/forecast/' + apiKey + '/' + pos.lat + ',' + pos.lng;
           }
+
           // Grab data for starting location weather conditions
       $.ajax({
         url: apiURL,

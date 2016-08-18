@@ -4,7 +4,6 @@
     <%- include ../partials/head %>
   </head>
   <body>
-    <%- include ../partials/header %>
     <%- include ../partials/nav %>
     <div class="container about-content">
       <h3 class="custom-font">About Roadtrippr</h3>
@@ -19,17 +18,15 @@
             </ul>
           </p>
         </article>
+      </main>
+    </div>
 
-    </main>
-  </div>
+    <%# car animation%>
+    <div class="car-right">
+     <img class="car-right-image" src="/assets/images/woman.png" alt="Car">
+    </div>
 
-  <%# car animation%>
-  <div class="car-right">
-   <img class="car-right-image" src="/assets/images/woman.png" alt="Car">
-  </div>
-
-  <%- include ../partials/scripts %>
-  <script src="/javascript/about.js"></script>
-</body>
-
+    <%- include ../partials/scripts %>
+    <script src="/javascript/about.js"></script>
+  </body>
 </html>
