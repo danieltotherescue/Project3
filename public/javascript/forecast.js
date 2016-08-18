@@ -1,5 +1,5 @@
 $(document).ready(function($) {
-$('#seeWeatherdest').on('click', function(){
+  $('#seeWeatherdest').on('click', function(){
     // http://stackoverflow.com/questions/35383686/skycons-dark-sky-forecast-api-displaying-animated-icons-for-dynamically-created
 
     function findWindDirection(dir) {
@@ -47,6 +47,7 @@ $('#seeWeatherdest').on('click', function(){
         }
       }
     })
+
     function findWindDirection(dir) {
       var key    = ['N','S','W','E','NW','NE','SW','SE'];
       var select = Math.floor(dir/45);
@@ -94,4 +95,5 @@ $('#seeWeatherdest').on('click', function(){
     })
     $('#seeWeatherdest').addClass('hidden')
 })
+
 })
