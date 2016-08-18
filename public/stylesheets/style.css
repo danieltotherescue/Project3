@@ -85,13 +85,13 @@ body {
     clear: both;
 }
 
-#midp {
+.markers {
   height: 15%;
   width: 15%;
 }
 
-#weather {
-  background-color:#fff;
+.weather {
+  background-color: background: #000;
    border-width:1px;
    border-style:solid;
    border-bottom-color:#aaa;

@@ -115,6 +115,7 @@ $.when(geoLocation.getLocation()).then(function(data){
         }
       }
       console.log("How about now?", latLng);
+      // after finishing up running geoLocation.getLocation run this function thanks to promise
       function findWindDirection(dir) {
         var key    = ['N','S','W','E','NW','NE','SW','SE'];
         var select = Math.floor(dir/45);
@@ -216,7 +217,6 @@ $.when(geoLocation.getLocation()).then(function(data){
       } else {
         var apiURL = 'https://api.forecast.io/forecast/' + apiKey + '/' + pos.lat + ',' + pos.lng;
           }
-      // var apiKey = '76a0b6639f56ec09d980a92471acf6cb';
 
       $.ajax({
         url: apiURL,
