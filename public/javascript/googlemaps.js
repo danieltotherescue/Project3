@@ -1,6 +1,7 @@
 var startingLoc = 'seattle';
 var destination = 'miami';
 var $dLatitude;
+var latLng;
 var $dLongitude;
 var $sLatitude;
 var $sLongitude;
