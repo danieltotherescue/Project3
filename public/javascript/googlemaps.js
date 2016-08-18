@@ -4,7 +4,7 @@ var $dLongitude;
 var $sLatitude;
 var $sLongitude;
 var latLng;
-
+var pos;
 var geoLocation = {
   getLocation: function() {
     var deferred = $.Deferred();
@@ -26,9 +26,9 @@ var geoLocation = {
 };
 
 $.when(geoLocation.getLocation()).then(function(data){
-  var pos = {
+   pos = {
     lat: data.coords.latitude,
-    lng: data.coords .longitude
+    lng: data.coords.longitude
   };
   console.log(pos);
 
