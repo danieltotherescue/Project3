@@ -8,6 +8,7 @@
   <body>
     <%- include ../partials/header %>
     <%- include ../partials/nav %>
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -48,7 +49,7 @@
 
 
 
-
+    <%# Grabbing information from forecast.io and picking correct to display correct weather icon %>
     <div class='forecast'></div>
     <script>
        var icons = new Skycons({"color": "black"}),
