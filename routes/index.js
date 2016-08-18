@@ -103,6 +103,7 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+
 module.exports = router;
 
 // maybe dead code from deleted routes.js

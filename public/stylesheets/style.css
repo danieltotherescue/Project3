@@ -85,6 +85,22 @@ body {
     clear: both;
 }
 
+#midp {
+  height: 15%;
+  width: 15%;
+}
+
+#weather {
+  background-color:#fff;
+   border-width:1px;
+   border-style:solid;
+   border-bottom-color:#aaa;
+   border-right-color:#aaa;
+   border-top-color:#ddd;
+   border-left-color:#ddd;
+   border-radius:3px;
+
+
 .fb-comments {
   margin-top: 50px;
 }
