@@ -11,7 +11,7 @@ var startingLoc;
 
 var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
 forecastIo.forecast('51.506', '0.127').then(function(data) {
-  console.log(JSON.stringify(data, null, 2));
+  // console.log(JSON.stringify(data, null, 2));
 });
 
 var options = {
@@ -19,7 +19,7 @@ var options = {
   exclude: 'currently,hourly,flags'
 };
 forecastIo.forecast('49.844', '24.028', options).then(function(data) {
-  console.log(JSON.stringify(data, null, 2));
+  // console.log(JSON.stringify(data, null, 2));
 });
 
 
@@ -79,7 +79,7 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
-  
+
 router.get('/savedsearches', function(req, res, next){
   res.render('pages/savedsearches', { title: 'Roadtrippr search results', user: req.user });
 })
