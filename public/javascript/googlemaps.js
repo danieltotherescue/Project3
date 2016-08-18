@@ -52,8 +52,8 @@ $.when(geoLocation.getLocation()).then(function(data){
         map: map,
         position: results[0].geometry.location
       });
-      $sLatitude  = results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f / 2;
-      $sLongitude =  results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f / 2;
+      $sLatitude  = (results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f) / 2;
+      $sLongitude = (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2;
   }});
   geocoder.geocode({ 'address': destination }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -63,8 +63,8 @@ $.when(geoLocation.getLocation()).then(function(data){
         position: results[0].geometry.location
       });
 
-       $dLatitude = results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f / 2;
-      $dLongitude = results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f / 2;
+       $dLatitude = (results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f) / 2;
+      $dLongitude = (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2;
   }});
 
 
