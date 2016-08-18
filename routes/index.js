@@ -94,7 +94,11 @@ router.get('/logout', function(req, res){
 });
 
 router.get('/savedsearches', function(req, res, next){
+  if(req.user) {
   res.render('pages/savedsearches', { title: 'Roadtrippr search results', user: req.user });
+} else {
+  res.render('/')
+}
 })
 
 router.get('/searchresults', function(req, res, next) {
