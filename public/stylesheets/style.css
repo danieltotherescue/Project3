@@ -51,7 +51,19 @@ label {
 
 #map {
   height: 500px;
-  width: 500px;
+  width: 80%;
+  padding: 100px;
+}
+
+/* code for moving car on about page */
+body {
+    overflow-x: hidden;
+}
+.car-right-image {
+    position: absolute;
+    margin-top: 300px;
+    width: 260px;
+    left: -260px;
 }
 
 .float-my-children > * {
@@ -88,4 +100,7 @@ label {
    border-left-color:#ddd;
    border-radius:3px;
 
+
+.fb-comments {
+  margin-top: 50px;
 }
