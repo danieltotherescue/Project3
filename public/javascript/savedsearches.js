@@ -50,7 +50,6 @@ function deleteHandler(e) {
 
 $(document).ready(function(){
   $start = $('#start');
-
   getSearches();
   // console.log(search)
   $.ajax({
@@ -60,18 +59,5 @@ $(document).ready(function(){
   }).done(function(data){
     console.log(data);
   });
-
-
-  //clickable entire row
-  // $('tbody#start').on("click", function(){
-  //   alert(this);
-  // })
-
-
-
-//
-// $personalSearch.on("click", ":checkbox", updateHandler);
-// $savedSearch.on("click", ".editBtn", updateHandler);
-// $personalSearch.on("click", ".remove-item", deleteHandler);
 $start.on("click", ".delBtn", deleteHandler);
 });
