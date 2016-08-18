@@ -8,7 +8,6 @@ var ForecastIo = require('forecastio');
 var destination;
 var startingLoc;
 
-
 var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
 forecastIo.forecast('51.506', '0.127').then(function(data) {
   // console.log(JSON.stringify(data, null, 2));
@@ -43,19 +42,6 @@ router.get('/about', function(req, res, next) {
 
 
 router.post('/', function(req, res, next) {
-
-  // res.send(<'iframe width="70%" height="70%" src="https://api.forecast.io/forecast/9363c7ddfdea32d3ccd82b5c780b74d1/hourly' + latitude' +  'longitude'"></iframe>', function (error, response, body) {
-  //   if (!error && response.statusCode == 200) {
-  //     console.log(body) // Print the google web page.
-  //   }
-  // })
-
-  // Directions
-
-
-  // Waypoints
-
-
   console.log(req.body)
   destination = req.body.destination;
   startingLoc = req.body.startingLoc;
@@ -105,8 +91,3 @@ router.get('/logout', function(req, res){
 
 
 module.exports = router;
-
-// maybe dead code from deleted routes.js
-// if (path === '/searchresults' || path === '/savedsearches') {
-//   require('./controllers/search').get(req, res)
-// }
