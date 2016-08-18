@@ -1,8 +1,11 @@
+var startingLoc = 'seattle';
+var destination = 'miami';
 var $dLatitude;
 var latLng;
 var $dLongitude;
 var $sLatitude;
 var $sLongitude;
+var latLng;
 
 var geoLocation = {
   getLocation: function() {
@@ -90,22 +93,15 @@ $.when(geoLocation.getLocation()).then(function(data){
       var lng;
       var distance = route.legs[0].distance.value;
       var midPoint = route.legs[0].distance.value / 2
-      console.log('distance: ' + distance)
-      console.log('midPoint: ' + midPoint)
 
       for (var i = 0; i < route.legs[0].steps.length; i++) {
         if (midPoint - route.legs[0].steps[i].distance.value > 0) {
           midPoint -= route.legs[0].steps[i].distance.value
-
-          console.log('New midPoint: ' + midPoint)
-
         } else {
-
-          console.log('stopping: ' + route.legs[0].steps[i])
-
           var percent = midPoint/route.legs[0].steps[i].distance.value;
           lat = route.legs[0].steps[i].path[Math.floor(route.legs[0].steps[i].path.length * percent)].lat();
           lng = route.legs[0].steps[i].path[Math.floor(route.legs[0].steps[i].path.length * percent)].lng();
+
           latLng = {lat, lng};
 
           var marker = new google.maps.Marker({
