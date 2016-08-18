@@ -34,6 +34,14 @@
         <li id="Swind"></li>
       </ul>
     </div>
+    <div id='Minfo'>
+      <div id='Mlocation'>Middle Point</div>
+      <ul>
+        <li id="Mcondition"></li>
+        <li id="Mtemp"></li>
+        <li id="Mwind"></li>
+      </ul>
+    </div>
     <div id='Dinfo'>
       <div id='Dlocation'>Destination</div>
       <ul>
@@ -42,8 +50,7 @@
         <li id="Dwind"></li>
       </ul>
     </div>
-    <button id="seeWeatherstart">Show Weather at starting point!</button>
-    <button id="seeWeatherdest">Show Weather at destination!</button>
+    <button id="seeWeatherdest">Show The Weather!</button>
 
 
     <div class='forecast'></div>
@@ -71,7 +78,7 @@
     var destination = <%- JSON.stringify(destination) %>
     var startingLoc = <%- JSON.stringify(startingLoc) %>
     </script>
-    
+
     <script src="javascript/googlemaps.js"></script>
     <script src="javascript/forecast.js"></script>
   </body>
