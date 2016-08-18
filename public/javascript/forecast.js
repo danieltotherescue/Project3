@@ -1,11 +1,11 @@
 $(document).ready(function($) {
-$('#seeWeatherdest').on('click', function(){
+  $('#seeWeatherdest').on('click', function(){
     // http://stackoverflow.com/questions/35383686/skycons-dark-sky-forecast-api-displaying-animated-icons-for-dynamically-created
     // var city      = geoplugin_city();
     // var startlongitude = $longitude;
     // var startlatitude  = $latitude;
 
-  // data counter retrived from a .each()
+    // data counter retrived from a .each()
     // var counter = 0;
 
     // $('#location').append(city);
@@ -54,15 +54,15 @@ $('#seeWeatherdest').on('click', function(){
           icons.play();
         }
       }
-    // })
-})
-$('#seeWeatherstart').on('click', function(){
+    })
+  })
+  $('#seeWeatherstart').on('click', function(){
     // http://stackoverflow.com/questions/35383686/skycons-dark-sky-forecast-api-displaying-animated-icons-for-dynamically-created
     // var city      = geoplugin_city();
     // var startlongitude = $longitude;
     // var startlatitude  = $latitude;
 
-  // data counter retrived from a .each()
+    // data counter retrived from a .each()
     // var counter = 0;
 
     // $('#location').append(city);
@@ -112,5 +112,5 @@ $('#seeWeatherstart').on('click', function(){
         }
       }
     })
-})
+  })
 })
