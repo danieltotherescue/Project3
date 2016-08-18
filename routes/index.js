@@ -2,7 +2,7 @@ var express  = require('express');
 var router   = express.Router();
 var passport = require('passport');
 var searchController = require('../controllers/search');
-
+// var pagesController = require('../controllers/pages')
 var ForecastIo = require('forecastio');
 
 var destination;
@@ -21,21 +21,25 @@ var startingLoc;
 //   console.log(JSON.stringify(data, null, 2));
 // });
 
-
 router.route('/api/search')
-  .get(searchController.index);
+  .get(searchController.index)
+  // .post(searchController.create);
+
+router.route('/api/search/:id')
+  .delete(searchController.destroy);
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Roadtrippr', user: req.user });
 });
 
+//methinks this is duplicate code.  Let's delete?
+// router.route('/')
+//   .get(pagesController.index);
+
 router.get('/about', function(req, res, next) {
   res.render('pages/about', { title: 'About Roadtrippr', user: req.user });
 });
 
-router.get('/savedsearches', function(req, res, next) {
-  res.render('pages/savedsearches', { title: 'Your saved searches', user: req.user });
-})
 
 router.post('/', function(req, res, next) {
   console.log(req.body)
@@ -59,7 +63,9 @@ router.get('/searchresults', function(req, res, next) {
   res.render('pages/searchresults', {title: 'Roadtrippr Search Results', user: req.user, destination: destination, startingLoc: startingLoc})
 })
 
-
+router.get('/savedsearches', function(req, res, next) {
+  res.render('pages/savedsearches', { title: 'Your saved searches', user: req.user });
+})
 
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -79,12 +85,9 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-router.get('/savedsearches', function(req, res, next){
-  res.render('pages/savedsearches', { title: 'Roadtrippr search results', user: req.user });
-})
-
-router.get('/searchresults', function(req, res, next) {
-  res.render('pages/searchresults', { title: 'Roadtrippr search results', user: req.user });
-})
-
 module.exports = router;
+
+// maybe dead code from deleted routes.js
+// if (path === '/searchresults' || path === '/savedsearches') {
+//   require('./controllers/search').get(req, res)
+// }
