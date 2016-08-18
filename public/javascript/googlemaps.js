@@ -17,6 +17,7 @@ var geoLocation = {
     console.log('Geo Location failed.');
   }
 };
+
 $.when(geoLocation.getLocation()).then(function(data){
   var pos = {
     lat: data.coords.latitude,
@@ -56,7 +57,8 @@ $.when(geoLocation.getLocation()).then(function(data){
       });
       console.log(destination + ' latitude: ' + (results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f) / 2)
       console.log(destination + ' longitude: ' + (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2)
-  }});
+    }
+  });
 
   if (startingLoc) {
     var req = {
@@ -106,7 +108,7 @@ $.when(geoLocation.getLocation()).then(function(data){
             map: map,
             title: 'FUCK YEAH!'
           })
-          
+
           break;
         }
       }
