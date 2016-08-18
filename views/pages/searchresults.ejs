@@ -1,29 +1,85 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <%- include ../partials/head %>
+    <script language="JavaScript" src="https://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+
   </head>
   <body>
     <%- include ../partials/header %>
     <%- include ../partials/nav %>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 
-    <h1>TEST</h1>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_yzTWnGjID6IUWj9PF9IVhIFwYtCp_fM"></script>
-
-    </script>
+    <div class="clearfix float-my-children">
     <div id="map"></div>
-
+    <div id='Sinfo'>
+      <div id='Slocation'></div>
+      <ul style="list-style-type:none">Starting Point Weather
+        <li id="Scondition"></li>
+        <li id="Stemp"></li>
+        <li id="Swind"></li>
+      </ul>
+      <ul style="list-style-type:none">Mid Point Weather
+        <li id="Mcondition"></li>
+        <li id="Mtemp"></li>
+        <li id="Mwind"></li>
+    </ul>
+        <ul style="list-style-type:none">Destination Point Weather
+          <li id="Dcondition"></li>
+          <li id="Dtemp"></li>
+          <li id="Dwind"></li>
+      </ul>
+    </div>
+    <%# <div id='Dlocation'>Destination Point Weather</div>%>
+    <%# <ul>
+      <li id="Dcondition"></li>
+      <li id="Dtemp"></li>
+      <li id="Dwind"></li>
+    </ul>%>
+  </div>
+    <div class="fb-comments" data-href="https://djam-roadtrippr.herokuapp.com/searchresults" data-numposts="5"></div>
 
     <%- include ../partials/scripts %>
 
-    <script>
-      var destination = <%- JSON.stringify(destination) %>
-      var startingLoc = <%- JSON.stringify(startingLoc) %>
-    </script>
-    <script src="javascript/googlemaps.js">
 
+
+
+    <div class='forecast'></div>
+    <script>
+       var icons = new Skycons({"color": "black"}),
+             list  = [
+               "clear-day", "clear-night", "partly-cloudy-day",
+               "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+               "fog"
+             ],
+             i;
+
+         for(i = list.length; i--; ) {
+       var weatherType = list[i],
+           elements = document.getElementsByClassName( weatherType );
+       for (e = elements.length; e--;){
+           icons.set( elements[e], weatherType );
+       }
+    }
+
+         icons.play();
     </script>
+
+    <script>
+    var destination = <%- JSON.stringify(destination) %>
+    var startingLoc = <%- JSON.stringify(startingLoc) %>
+    </script>
+
+    <script src="javascript/googlemaps.js"></script>
   </body>
 </html>
