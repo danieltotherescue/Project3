@@ -6,6 +6,7 @@ var $sLongitude;
 var latLng;
 var pos;
 
+// This section of code will get your current location
 var geoLocation = {
   getLocation: function() {
     var deferred = $.Deferred();
@@ -26,6 +27,7 @@ var geoLocation = {
   }
 };
 
+// This section of code creates the map
 $.when(geoLocation.getLocation()).then(function(data){
    pos = {
     lat: data.coords.latitude,
@@ -45,6 +47,7 @@ $.when(geoLocation.getLocation()).then(function(data){
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   directionsDisplay.setMap(map);
 
+// This section of code generates the beginning and end markers in the map
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({ 'address': startingLoc }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -69,7 +72,6 @@ $.when(geoLocation.getLocation()).then(function(data){
       $dLongitude = (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2;
   }});
 
-
   if (startingLoc) {
     var req = {
       origin: startingLoc,
@@ -84,6 +86,7 @@ $.when(geoLocation.getLocation()).then(function(data){
     }
   }
 
+// This section of code finds the midpoint of the route and places a marker on it
   directionsService.route(req, function(res, status) {
     if (status == 'OK') {
       directionsDisplay.setDirections(res);
@@ -114,8 +117,8 @@ $.when(geoLocation.getLocation()).then(function(data){
           break;
         }
       }
-      console.log("How about now?", latLng);
-      // after finishing up running geoLocation.getLocation run this function thanks to promise
+
+/////////// This section is all about the weather api
       function findWindDirection(dir) {
         var key    = ['N','S','W','E','NW','NE','SW','SE'];
         var select = Math.floor(dir/45);
@@ -129,15 +132,11 @@ $.when(geoLocation.getLocation()).then(function(data){
         url: apiURL,
         dataType: 'jsonp',
         success: function(json) {
-          console.log(json)
           var currentTemp = Math.round(json.currently.apparentTemperature) + '\u00B0';
           var description = json.currently.summary;
           var icon        = json.currently.icon;
           var windDirect  = findWindDirection(json.currently.windBearing);
           var windSpeed   = Math.round(json.currently.windSpeed);
-          console.log(icon)
-          console.log(windDirect)
-          console.log(windSpeed)
           $('#Dtemp').append(currentTemp);
           $('#Dcondition').append(description + '<br><canvas class="' + icon +'" width="50" height="50"></canvas>')
 
@@ -174,15 +173,11 @@ $.when(geoLocation.getLocation()).then(function(data){
         url: apiURL,
         dataType: 'jsonp',
         success: function(json) {
-          console.log(json)
           var currentTemp = Math.round(json.currently.apparentTemperature) + '\u00B0';
           var description = json.currently.summary;
           var icon        = json.currently.icon;
           var windDirect  = findWindDirection(json.currently.windBearing);
           var windSpeed   = Math.round(json.currently.windSpeed);
-          console.log(icon)
-          console.log(windDirect)
-          console.log(windSpeed)
           $('#Mtemp').append(currentTemp);
           $('#Mcondition').append(description + '<br><canvas class="' + icon +'" width="50" height="50"></canvas>')
 
@@ -222,15 +217,11 @@ $.when(geoLocation.getLocation()).then(function(data){
         url: apiURL,
         dataType: 'jsonp',
         success: function(json) {
-          console.log(json)
           var currentTemp = Math.round(json.currently.apparentTemperature) + '\u00B0';
           var description = json.currently.summary;
           var icon        = json.currently.icon;
           var windDirect  = findWindDirection(json.currently.windBearing);
           var windSpeed   = Math.round(json.currently.windSpeed);
-          console.log(icon)
-          console.log(windDirect)
-          console.log(windSpeed)
           $('#Stemp').append(currentTemp);
           $('#Scondition').append(description + '<br><canvas class="' + icon +'" width="50" height="50"></canvas>')
 
