@@ -1,4 +1,5 @@
 var $dLatitude;
+var latLng;
 var $dLongitude;
 var $sLatitude;
 var $sLongitude;
@@ -87,7 +88,6 @@ $.when(geoLocation.getLocation()).then(function(data){
       console.log(route);
       var lat;
       var lng;
-      var latLng;
       var distance = route.legs[0].distance.value;
       var midPoint = route.legs[0].distance.value / 2
       console.log('distance: ' + distance)
