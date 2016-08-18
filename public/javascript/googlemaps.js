@@ -17,6 +17,7 @@ var geoLocation = {
     console.log('Geo Location failed.');
   }
 };
+
 $.when(geoLocation.getLocation()).then(function(data){
   var pos = {
     lat: data.coords.latitude,
@@ -56,7 +57,8 @@ $.when(geoLocation.getLocation()).then(function(data){
       });
       console.log(destination + ' latitude: ' + (results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f) / 2)
       console.log(destination + ' longitude: ' + (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2)
-  }});
+    }
+  });
 
   if (startingLoc) {
     var req = {
@@ -76,6 +78,40 @@ $.when(geoLocation.getLocation()).then(function(data){
   directionsService.route(req, function(res, status) {
     if (status == 'OK') {
       directionsDisplay.setDirections(res);
+      var route = res.routes[0];
+      console.log(route);
+      var lat;
+      var lng;
+      var latLng;
+      var distance = route.legs[0].distance.value;
+      var midPoint = route.legs[0].distance.value / 2
+      console.log('distance: ' + distance)
+      console.log('midPoint: ' + midPoint)
+
+      for (var i = 0; i < route.legs[0].steps.length; i++) {
+        if (midPoint - route.legs[0].steps[i].distance.value > 0) {
+          midPoint -= route.legs[0].steps[i].distance.value
+
+          console.log('New midPoint: ' + midPoint)
+
+        } else {
+
+          console.log('stopping: ' + route.legs[0].steps[i])
+
+          var percent = midPoint/route.legs[0].steps[i].distance.value;
+          lat = route.legs[0].steps[i].path[Math.floor(route.legs[0].steps[i].path.length * percent)].lat();
+          lng = route.legs[0].steps[i].path[Math.floor(route.legs[0].steps[i].path.length * percent)].lng();
+          latLng = {lat, lng};
+
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            title: 'FUCK YEAH!'
+          })
+
+          break;
+        }
+      }
     }
   })
 });
