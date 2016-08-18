@@ -139,6 +139,5 @@ $(document).ready(function($) {
       }
     })
     $('#seeWeatherdest').addClass('hidden')
-})
-
+  })
 })
