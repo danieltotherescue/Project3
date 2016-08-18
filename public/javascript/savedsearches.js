@@ -27,6 +27,7 @@ function getSearches(){
     })
 }
 
+
 // function addSearch(search){
 //   var searches = $.get('/api/search')
 //   for (var i=0; i < searches.length; i++)

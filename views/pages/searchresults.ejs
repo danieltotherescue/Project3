@@ -2,6 +2,9 @@
 <html>
   <head>
     <%- include ../partials/head %>
+    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+
   </head>
   <body>
     <%- include ../partials/header %>
@@ -26,7 +29,55 @@
       var destination = <%- JSON.stringify(destination) %>
       var startingLoc = <%- JSON.stringify(startingLoc) %>
     </script>
+<<<<<<< HEAD
+
+    <div id='Sinfo'>
+  <div id='Slocation'>Starting Point</div>
+  <ul>
+    <li id="Scondition"></li>
+    <li id="Stemp"></li>
+    <li id="Swind"></li>
+  </ul>
+</div>
+<div id='Dinfo'>
+<div id='Dlocation'>Destination</div>
+<ul>
+<li id="Dcondition"></li>
+<li id="Dtemp"></li>
+<li id="Dwind"></li>
+</ul>
+</div>
+<button id="seeWeatherstart">Show Weather at starting point!</button>
+<button id="seeWeatherdest">Show Weather at destination!</button>
+
+
+<div class='forecast'></div>
+<script>
+   var icons = new Skycons({"color": "black"}),
+         list  = [
+           "clear-day", "clear-night", "partly-cloudy-day",
+           "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+           "fog"
+         ],
+         i;
+
+     for(i = list.length; i--; ) {
+   var weatherType = list[i],
+       elements = document.getElementsByClassName( weatherType );
+   for (e = elements.length; e--;){
+       icons.set( elements[e], weatherType );
+   }
+}
+
+     icons.play();
+ </script>
+
+    <script src="javascript/googlemaps.js"></script>
+    <script src="javascript/forecast.js">
+    </script>
+=======
     <script src="javascript/googlemaps.js"></script>
 
+>>>>>>> a07b6128a0da9f858f8c7a9a8e19cffbdad8b0dc
   </body>
 </html>

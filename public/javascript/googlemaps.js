@@ -1,3 +1,8 @@
+var $dLatitude;
+var $dLongitude;
+var $sLatitude;
+var $sLongitude;
+
 var geoLocation = {
   getLocation: function() {
     var deferred = $.Deferred();
@@ -21,7 +26,7 @@ var geoLocation = {
 $.when(geoLocation.getLocation()).then(function(data){
   var pos = {
     lat: data.coords.latitude,
-    lng: data.coords.longitude
+    lng: data.coords .longitude
   };
   console.log(pos);
 
@@ -45,8 +50,8 @@ $.when(geoLocation.getLocation()).then(function(data){
         map: map,
         position: results[0].geometry.location
       });
-      console.log(startingLoc + ' latitude: ' + (results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f) / 2)
-      console.log(startingLoc + ' longitude: ' + (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2)
+      $sLatitude  = results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f / 2;
+      $sLongitude =  results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f / 2;
   }});
   geocoder.geocode({ 'address': destination }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -55,10 +60,11 @@ $.when(geoLocation.getLocation()).then(function(data){
         map: map,
         position: results[0].geometry.location
       });
-      console.log(destination + ' latitude: ' + (results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f) / 2)
-      console.log(destination + ' longitude: ' + (results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f) / 2)
-    }
-  });
+
+       $dLatitude = results[0].geometry.bounds.f.b + results[0].geometry.bounds.f.f / 2;
+      $dLongitude = results[0].geometry.bounds.b.b + results[0].geometry.bounds.b.f / 2;
+  }});
+
 
   if (startingLoc) {
     var req = {
@@ -73,7 +79,6 @@ $.when(geoLocation.getLocation()).then(function(data){
       travelMode: 'DRIVING'
     }
   }
-
 
   directionsService.route(req, function(res, status) {
     if (status == 'OK') {
@@ -114,4 +119,4 @@ $.when(geoLocation.getLocation()).then(function(data){
       }
     }
   })
-});
+})
