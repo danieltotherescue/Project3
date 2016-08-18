@@ -72,17 +72,3 @@ label {
 .clearfix:after {
     clear: both;
 }
-
-#seeWeatherdest {
-  background-color: Transparent;
-    border: none;
-    cursor:pointer;
-    outline:none;
-    margin-left: 120px;
-}
-
-#weatherbutton {
-  height: 40px;
-  width: 90px;
-  margin-left: -100px;
-}
