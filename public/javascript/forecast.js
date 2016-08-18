@@ -98,9 +98,12 @@ $(document).ready(function($) {
       var select = Math.floor(dir/45);
       return key[select];
     }
-
+    if(startingLoc) {
+      var apiURL = 'https://api.forecast.io/forecast/' + apiKey + '/' + $sLatitude + ',' + $sLongitude;
+    } else {
+      var apiURL = 'https://api.forecast.io/forecast/' + apiKey + '/' + pos.lat + ',' + pos.lng;
+        }
     // var apiKey = '76a0b6639f56ec09d980a92471acf6cb';
-    var apiURL = 'https://api.forecast.io/forecast/' + apiKey + '/' + $sLatitude + ',' + $sLongitude;
 
     $.ajax({
       url: apiURL,
