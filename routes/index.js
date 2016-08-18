@@ -58,7 +58,11 @@ router.post('/', function(req, res, next) {
   var Search = require('../models/Search');
   console.log('storing a new search!');
   var newSearch = new Search();
-  newSearch.starting_point = startingLoc;
+  if (startingLoc) {
+    newSearch.starting_point = startingLoc;
+  } else {
+    newSearch.starting_point = '*'
+  }
   newSearch.destination = destination;
   console.log(newSearch);
   newSearch.save(function(err, savedSearch) {
