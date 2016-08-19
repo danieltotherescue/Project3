@@ -1,9 +1,9 @@
 var express  = require('express');
 var router   = express.Router();
 var passport = require('passport');
-var searchController = require('../controllers/search');
-// var pagesController = require('../controllers/pages')
 var ForecastIo = require('forecastio');
+var searchController = require('../controllers/search');
+var user = require('../models/User')
 
 var destination;
 var startingLoc;
@@ -49,9 +49,13 @@ router.post('/', function(req, res, next) {
   }
   newSearch.destination = destination;
   console.log(newSearch);
-  newSearch.save(function(err, savedSearch) {
-    if(err) next (err);
-  });
+  if (req.user) {
+    newSearch.searchMadeBy = req.user._id;
+    newSearch.save(function(err, savedSearch) {
+      if(err) next (err);
+      console.log(savedSearch);
+    });
+  }
   res.redirect('searchresults')
 })
 
