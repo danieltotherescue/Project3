@@ -36,7 +36,10 @@ Roadtrippr will log all of your searches, which a signed-in user can view, updat
 
 ###Unsolved Problems:
 1: The weather at destination at time of arrival
+
 2: Not saving searches if not logged in
+
+3: More midpoints (midpoint of midpoints)
 
 ###Major hurdles:
 Early-on git workflow.
