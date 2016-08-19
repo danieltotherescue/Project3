@@ -50,7 +50,8 @@ Roadtrippr will log all of your searches, which a signed-in user can view, updat
 
 2: More midpoints (midpoint of midpoints)
 
-3: a link to view the map of the modified or saved searches from the saved searches page
+3: A link to view the map of the modified or saved searches from the saved searches page
+>>>>>>> 4bea92c48b387b6135fdc22560e623dccf0ed26b
 
 ###Major hurdles:
 Early-on git workflow.
