@@ -9,32 +9,72 @@ function getSearches(){
         if (search.searchMadeBy == $('.hidden-id').attr('id')) {
           $('tbody#start').prepend('<tr id="'+ search._id +'"><a href = "#"><td>' + search.starting_point + '</td></a>' + '<td>' + search.destination + '</td><td><button type="button" class="editBtn btn btn-info">Info</button>  <button type="button" class="delBtn btn btn-warning">Delete</button></td></tr>');
         }
-        // console.log(search._id)
-
-        // $('tbody.rowlink').rowlink()
-        // addSearch(search)
       })
     })
 }
 
-function getId(rowInfo) {
-}
-//pulls the id from the row/column for update/delete
 
-//update function here
+// Define function that will get executed when the checkbox is clicked
+function updateHandler(e) {
+  // Grab the parent li of the checkbox that triggered the event
+  var html = $(this).parent().parent();
+  var flashUpdate = function(){
+    html.addClass('animated flash');
+    setTimeout(flashUpdate(), 2000);
+    };
+
+
+  // Get the id of the search we are updating
+
+  var id = $(this).parent().parent().attr('id')
+  var firstTd = $('#'+id).children().first()
+  var is_edit = firstTd.next().next().children().first().html()
+  if (is_edit == 'Edit'){
+    var firstValue = firstTd.html()
+    var secondValue = firstTd.next().html()
+    firstTd.html('<input value="'+firstValue+'">')
+    firstTd.next().html('<input value="'+secondValue+'">')
+    firstTd.next().next().html('<button type="button" class="editBtn btn btn-danger">Submit</button>  <button type="button" class="delBtn btn btn-warning">Delete</button>')
+    $('.editBtn')
+  }
+  else{
+  // User AJAX to update the search in our db
+  var starting_point = firstTd.children().first().val()
+  var destination = firstTd.next().children().first().val()
+
+  $.ajax({
+      type: "PATCH",
+      url: "/api/search/" + encodeURIComponent(id),
+      data: {
+        starting_point: starting_point,
+        destination: destination
+      }
+    }).then(
+      function(data) {
+
+        firstTd.html(data.starting_point);
+        firstTd.next().html(data.destination);
+        firstTd.next().next().html('<button type="button" class="editBtn btn btn-info">Edit</button>  <button type="button" class="delBtn btn btn-warning">Delete</button>');
+
+
+      }
+    )
+  }
+}
+
 
 
 // Define function that will get executed when the X is clicked on.
 function deleteHandler(e) {
 
-  //Grab the parent li of the span
+  //Grab the parent tr of the table
   var html = $(this).parent().parent();
   var flashDelete = function(){
     html.addClass('animated flash');
     setTimeout(flashDelete(), 2000);
     };
 
-  // settimeout (1 sec)
+
   // Get the id of the search we are deleting
   var id = $(this).parent().parent().attr('id');
 
@@ -62,5 +102,7 @@ $(document).ready(function(){
   }).done(function(data){
     console.log(data);
   });
+
+$start.on("click", ".editBtn", updateHandler);
 $start.on("click", ".delBtn", deleteHandler);
 });
