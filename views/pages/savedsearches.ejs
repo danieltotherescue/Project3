@@ -6,6 +6,9 @@
   <body>
     <%- include ../partials/nav %>
 
+    <!-- hidden div to make it so the back end can pull the id of the current user! Mike is awesome -->
+    <div class='hidden-id' id='<%= user? user._id : '' %>'></div>
+
     <div class="container">
 
       <h1>Saved Searches</h1>
@@ -23,6 +26,6 @@
 
     <%- include ../partials/scripts %>
     <script src="/javascript/savedsearches.js"></script>
-  
+
   </body>
 </html>
