@@ -1,3 +1,4 @@
+// http://stackoverflow.com/questions/29911143/how-can-i-animate-the-drawing-of-text-on-a-web-page 
 var ctx = document.querySelector("canvas").getContext("2d"),
     dashLen = 220, dashOffset = dashLen, speed = 5,
     txt = "Roadtrippr  ", x = 60, i = 0;
