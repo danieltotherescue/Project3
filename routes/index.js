@@ -8,7 +8,6 @@ var ForecastIo = require('forecastio');
 var destination;
 var startingLoc;
 
-
 var forecastIo = new ForecastIo(process.env.WEATHER_KEY, {timeout: 30*1000});
 forecastIo.forecast('51.506', '0.127').then(function(data) {
   // console.log(JSON.stringify(data, null, 2));
@@ -24,7 +23,6 @@ forecastIo.forecast('49.844', '24.028', options).then(function(data) {
 
 router.route('/api/search')
   .get(searchController.index)
-  // .post(searchController.create);
 
 router.route('/api/search/:id')
   .patch(searchController.update)
@@ -34,29 +32,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Roadtrippr', user: req.user });
 });
 
-//methinks this is duplicate code.  Let's delete?
-// router.route('/')
-//   .get(pagesController.index);
-
 router.get('/about', function(req, res, next) {
   res.render('pages/about', { title: 'About Roadtrippr', user: req.user });
 });
 
-
 router.post('/', function(req, res, next) {
-
-  // res.send(<'iframe width="70%" height="70%" src="https://api.forecast.io/forecast/9363c7ddfdea32d3ccd82b5c780b74d1/hourly' + latitude' +  'longitude'"></iframe>', function (error, response, body) {
-  //   if (!error && response.statusCode == 200) {
-  //     console.log(body) // Print the google web page.
-  //   }
-  // })
-
-  // Directions
-
-
-  // Waypoints
-
-
   console.log(req.body)
   destination = req.body.destination;
   startingLoc = req.body.startingLoc;
@@ -73,8 +53,6 @@ router.post('/', function(req, res, next) {
   newSearch.save(function(err, savedSearch) {
     if(err) next (err);
   });
-
-
   res.redirect('searchresults')
 })
 
@@ -104,10 +82,4 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-
 module.exports = router;
-
-// maybe dead code from deleted routes.js
-// if (path === '/searchresults' || path === '/savedsearches') {
-//   require('./controllers/search').get(req, res)
-// }

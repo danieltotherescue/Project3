@@ -10,14 +10,4 @@ var User = new mongoose.Schema({
  created: { type: Date, default: Date.now }
  })
 
-
-
-// User.methods.encrypt = function(password) {
-//   return bcrypt.hashSync(password, bcrypt.genSaltSync(4), null);
-// }
-//
-// User.methods.validPassword = function(password) {
-//   return bcrypt.compareSync(password, thos.local.password);
-// }
-
 module.exports = mongoose.model('User', User)

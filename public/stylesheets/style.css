@@ -85,13 +85,13 @@ body {
     clear: both;
 }
 
-#midp {
+.markers {
   height: 15%;
   width: 15%;
 }
 
-#weather {
-  background-color:#fff;
+.weather {
+  background-color: beige;
    border-width:1px;
    border-style:solid;
    border-bottom-color:#aaa;
@@ -99,7 +99,7 @@ body {
    border-top-color:#ddd;
    border-left-color:#ddd;
    border-radius:3px;
-
+}
 
 .fb-comments {
   margin-top: 50px;
