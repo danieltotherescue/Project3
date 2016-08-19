@@ -1,9 +1,9 @@
-// http://stackoverflow.com/questions/29911143/how-can-i-animate-the-drawing-of-text-on-a-web-page 
+// http://stackoverflow.com/questions/29911143/how-can-i-animate-the-drawing-of-text-on-a-web-page
 var ctx = document.querySelector("canvas").getContext("2d"),
-    dashLen = 220, dashOffset = dashLen, speed = 5,
+    dashLen = 250, dashOffset = dashLen, speed = 10,
     txt = "Roadtrippr  ", x = 60, i = 0;
 
-ctx.font = "85px font-family, Pacifico, cursive";
+ctx.font = "100px font-family, Permanent Marker, cursive";
 ctx.lineWidth = 3.5; ctx.lineJoin = "round"; ctx.globalAlpha = 3/3;
 ctx.strokeStyle = ctx.fillStyle = "#11090c";
 
