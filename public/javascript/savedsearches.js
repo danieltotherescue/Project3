@@ -7,7 +7,7 @@ function getSearches(){
       $.each(data, function(index, search){
         console.log(search.searchMadeBy)
         if (search.searchMadeBy == $('.hidden-id').attr('id')) {
-          $('tbody#start').prepend('<tr id="'+ search._id +'"><a href = "#"><td>' + search.starting_point + '</td></a>' + '<td>' + search.destination + '</td><td><button type="button" class="editBtn btn btn-info">Info</button>  <button type="button" class="delBtn btn btn-warning">Delete</button></td></tr>');
+          $('tbody#start').prepend('<tr id="'+ search._id +'"><a href = "#"><td>' + search.starting_point + '</td></a>' + '<td>' + search.destination + '</td><td><button type="button" class="editBtn btn btn-info">Edit</button>  <button type="button" class="delBtn btn btn-warning">Delete</button></td></tr>');
         }
       })
     })
