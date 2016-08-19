@@ -27,6 +27,7 @@ router.route('/api/search')
   // .post(searchController.create);
 
 router.route('/api/search/:id')
+  .patch(searchController.update)
   .delete(searchController.destroy);
 
 router.get('/', function(req, res, next) {
