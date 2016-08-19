@@ -7,7 +7,7 @@ function getSearches(){
       $.each(data, function(index, search){
         console.log(search.searchMadeBy)
         if (search.searchMadeBy == $('.hidden-id').attr('id')) {
-          $('tbody#start').prepend('<tr id="'+ search._id +'"><a href = "#"><td>' + search.starting_point + '</td></a>' + '<td>' + search.destination + '</td><td><button type="button" class="editBtn btn btn-info">Edit</button>  <button type="button" class="delBtn btn btn-warning">Delete</button></td></tr>');
+          $('tbody#start').prepend('<tr id="'+ search._id +'"><td>' + search.starting_point + '</td></a>' + '<td>' + search.destination + '</td><td><button type="button" class="editBtn btn btn-info">Edit</button>  <button type="button" class="delBtn btn btn-warning">Delete</button></td></tr>');
         }
       })
     })
@@ -24,7 +24,7 @@ function updateHandler(e) {
     };
 
 
-  // Get the id of the search we are updating
+  // Get the id of the search we are updating and use it to fetch the data through the button
 
   var id = $(this).parent().parent().attr('id')
   var firstTd = $('#'+id).children().first()
