@@ -2,6 +2,7 @@ var Search = require('../models/Search');
 
  module.exports = {
   index: index,
+  update: update,
   destroy: destroy
  }
 
@@ -12,6 +13,18 @@ var Search = require('../models/Search');
    });
    console.log('You got this far!');
  }
+
+ function update(req, res, next) {
+  var id = req.params.id;
+  console.log("You have updated your search", id, req.body);
+
+Search.findByIdAndUpdate(id, req.body, {new: true}, function(err, search){
+  if(err) next(err);
+  res.json(search)
+
+})
+
+}
 
 function destroy(req, res, next) {
   var id = req.params.id;
